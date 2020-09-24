@@ -5,7 +5,7 @@ package ehu.isad;
 
 public class App {
 
-    //private final String abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private final String abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private final String gakoa = "ZXCVBNMASDFGHJKLQWERTYUIOP";
 
     public String zifratu(String mezua){
@@ -15,12 +15,9 @@ public class App {
             char letra = mezua.charAt(i);
             if (Character.isLetter(letra)){
                 letra = gakoa.charAt(letra - 'A');
-                emaitza.append(letra);
-            }
-            else{
-                emaitza.append(" ");
-            }
 
+            }
+            emaitza.append(letra);
         }
 
         return emaitza.toString();
@@ -31,12 +28,12 @@ public class App {
         for (int i=0; i < kripto.length(); i++) {
             char letra = kripto.charAt(i);
             if (Character.isLetter(letra)){
-                letra = gakoa.charAt('Z'-letra);
-                emaitza.append(letra);
+                int indizea = gakoa.indexOf(letra);
+                letra = abc.charAt(indizea);
+
             }
-            else{
-                emaitza.append(" ");
-            }
+            emaitza.append(letra);
+
 
         }
 
